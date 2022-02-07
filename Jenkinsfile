@@ -22,9 +22,11 @@ pipeline{
      stage('CodeCompile'){
          steps{
              
-             sh 'export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $(which javac)))))'
-             sh 'export PATH=\$PATH:\$JAVA_HOME/bin'
-             sh 'mvn compile'
+             sh ''''
+                export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $(which javac)))))
+                export PATH=\$PATH:\$JAVA_HOME/bin
+                mvn compile
+                ''''
          }
      }
      stage('CodeAnalysis'){
