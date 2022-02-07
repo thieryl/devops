@@ -34,7 +34,13 @@ pipeline{
          steps{
              script{
                  withSonarQubeEnv() {
-                   sh 'mvn sonar:sonar' 
+                   //sh 'mvn sonar:sonar' 
+                sh '''
+                export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $(which javac)))))
+                export PATH=\$PATH:\$JAVA_HOME/bin
+                export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
+                mvn sonar:sonar
+                '''
                     }
                  timeout(time: 5, unit: 'HOURS') {
                     def qg = waitForQualityGate()
