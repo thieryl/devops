@@ -1,7 +1,7 @@
 pipeline{
     agent any
     tools{
-        maven 'M3'
+        maven 'T10'
     }
     environment{
         JAVA_HOME = '/usr/lib/jvm/java-11-openjdk-amd64'
