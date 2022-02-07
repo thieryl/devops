@@ -21,7 +21,9 @@ pipeline{
      //}
      stage('CodeCompile'){
          steps{
-             sh 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64'
+             
+             sh 'export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $(which javac)))))'
+             sh 'export PATH=\$PATH:\$JAVA_HOME/bin'
              sh 'mvn compile'
          }
      }
