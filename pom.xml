@@ -32,7 +32,7 @@
        <properties>
          <!-- Optional URL to server. Default value is http://localhost:9000 -->
          <sonar.host.url>
-        http://http://20.204.29.93:49153/
+            https://vsldvop1ri26.group.local/sonar
         </sonar.host.url>
       </properties>
    </profile>
