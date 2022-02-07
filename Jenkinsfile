@@ -33,7 +33,7 @@ pipeline{
      stage('CodeAnalysis'){
          steps{
              script{
-                 withSonarQubeEnv(credentialsId: 'sonarqube') {
+                 withSonarQubeEnv('sonarqube') {
                    sh 'mvn sonar:sonar' 
                     }
                  timeout(time: 5, unit: 'HOURS') {
