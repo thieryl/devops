@@ -67,14 +67,14 @@ pipeline{
       stage('DockerBuild'){
           steps{
               script{
-                 withCredentials([string(credentialsId: 'nexuspassword', variable: 'nexuspass')]) {
+                // withCredentials([string(credentialsId: 'nexuspassword', variable: 'nexuspass')]) {
                   sh '''
-                  docker build -t 35.236.47.74:8083/samruddh1 .
-                  docker login -u admin -p $nexuspass 35.236.47.74:8083 
-                  docker push 35.236.47.74:8083/samruddh1
-                  docker rmi 35.236.47.74:8083/samruddh1
+                  docker build -t 10.1.23.26:8082/nexus .
+                  docker login -u admin -p admun123 10.1.23.26:8082/nexus 
+                  #docker push 35.236.47.74:8083/samruddh1
+                  #docker rmi 35.236.47.74:8083/samruddh1
               ''' 
-                 }
+                 //}
                  
               }
               
